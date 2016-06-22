@@ -1,0 +1,146 @@
+use IMA14_spalek_project3;
+
+# Categories
+INSERT INTO category (name,description)
+VALUES ('General','General'), ('Billing','Billing'), ('Order','Order'), ('Hardware','Hardware'), ('Software','Software'), ('Admin', 'Admin');
+
+
+# User
+# www.gmx.at
+# email: dealwith.it@gmx.at
+# password: Pa$$w0rd
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled)
+VALUES ("UserModel", 'user1', 'dealwith.it@gmx.at', 'firstuser1', 'lastuser1', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe', 'resources/images/UserIcon.png', 0, true);
+
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled)
+VALUES ("UserModel", 'user2', 'dealwith.it@gmx.at', 'firstuser2', 'lastuser2', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe ', 'resources/images/UserIcon.png', 0, true);
+
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled)
+VALUES ("UserModel", 'user3', 'dealwith.it@gmx.at', 'firstuser3', 'lastuser3', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe ', 'resources/images/UserIcon.png', 0, true);
+
+
+
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled, category_name)
+VALUES ("SupportModel", 'supportSoftware', 'dealwith.it@gmx.at', 'firstsupport1', 'lastsupport1', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe', 'resources/images/UserIcon.png', 0, true, 'Software');
+
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled, category_name)
+VALUES ("SupportModel", 'supportHardware', 'dealwith.it@gmx.at', 'firstsupport2', 'lastsupport2', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe', 'resources/images/UserIcon.png', 0, true, 'Hardware');
+
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled, category_name)
+VALUES ("SupportModel", 'supportOrder', 'dealwith.it@gmx.at', 'firstsupport3', 'lastsupport3', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe', 'resources/images/UserIcon.png', 0, true, 'Order');
+
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled, category_name)
+VALUES ("SupportModel", 'supportBilling', 'dealwith.it@gmx.at', 'firstsupport4', 'lastsupport4', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe', 'resources/images/UserIcon.png', 0, true, 'Billing');
+
+
+INSERT INTO user (dtype, username, email, firstName, lastName, password, picture, version, enabled, category_name)
+VALUES ("SupportModel", 'admin', 'dealwith.it@gmx.at', 'firstadmin', 'lastadmin', '$2a$06$1c/ilStRNnhIP9fx9D5EX.u4nvqov62G.O8gOtQ45GcMcHrlMqexe', 'resources/images/UserIcon.png', 0, true, 'Admin');
+
+
+# User Roles
+INSERT INTO userRoles (username, role)
+VALUES ('user1', 'ROLE_USER');
+
+INSERT INTO userRoles (username, role)
+VALUES ('user2', 'ROLE_USER');
+
+INSERT INTO userRoles (username, role)
+VALUES ('user3', 'ROLE_USER');
+
+
+INSERT INTO userRoles (username, role)
+VALUES ('supportSoftware', 'ROLE_SUPPORT');
+
+INSERT INTO userRoles (username, role)
+VALUES ('supportHardware', 'ROLE_SUPPORT');
+
+INSERT INTO userRoles (username, role)
+VALUES ('supportOrder', 'ROLE_SUPPORT');
+
+INSERT INTO userRoles (username, role)
+VALUES ('supportBilling', 'ROLE_SUPPORT');
+
+INSERT INTO userRoles (username, role)
+VALUES ('admin', 'ROLE_ADMIN');
+
+# Closed Tickets
+INSERT INTO troubleTicket (closingReason, dateclosed, datecreated, datemodified, description, priority, status, subject, category_name, owner_username, support_username)
+VALUES ('Successfully processed software update.', '2016-06-21 12:17:45', '2016-06-21 08:33:21', '2016-06-21 12:17:45', 'Windows is not updating itself.', 0 , 'Closed', 'Problem with software update', 'Software', 'user1', 'supportSoftware');
+
+INSERT INTO troubleTicket (closingReason, dateclosed, datecreated, datemodified, description, priority, status, subject, category_name, owner_username, support_username)
+VALUES ('Changed batteries. Mouse is working.', '2016-06-05 11:07:23', '2016-06-05 10:47:44', '2016-06-05 11:07:23', 'The computer mouse is not working!', 0 , 'Closed', 'Defect computer mouse', 'Hardware', 'user2', 'supportHardware');
+
+INSERT INTO troubleTicket (closingReason, dateclosed, datecreated, datemodified, description, priority, status, subject, category_name, owner_username, support_username)
+VALUES ('Changed RAM. Computer is working.', '2016-06-07 11:04:10', '2016-06-06 13:47:44', '2016-06-06 14:07:23', 'The computer is not working!', 0 , 'Closed', 'Defect Computer', 'Hardware', 'user3', 'supportHardware');
+
+# Managed Tickets
+
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username, support_username)
+VALUES ('2016-06-20 15:43:32', '2016-06-20 17:13:37', 'You overbooked my credit card by 10€ for my order.', 7, 'Managed', 'Overbooking', 'Billing', 'user1', 'supportSoftware');
+
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username, support_username)
+VALUES ('2016-06-19 14:32:23', '2016-06-20 08:10:58', 'It hurts when IP.', 4, 'Managed', 'Problems with IP', 'General', 'user2', 'supportHardware');
+
+# id 6
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username, support_username)
+VALUES ('2016-06-20 14:32:23', '2016-06-20 08:10:58', 'I have a change to my order. The Adress is changing from Nr 6 to 8. Thanks', 4, 'Managed', 'Problems with Order', 'General', 'user3', 'supportOrder');
+
+#id 7
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username, support_username)
+VALUES ('2016-06-21 14:32:23', '2016-06-22 08:10:58', 'Keyboard does not work. Please Help!.', 4, 'Managed', 'Keyboard not working', 'General', 'user3', 'supportHardware');
+
+# New Opened Tickets
+
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username)
+VALUES ('2016-06-22 12:28:03', '2016-06-22 11:28:03', 'Problem', 5, 'Open', 'Probleeheem', 'General', 'user1');
+
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username)
+VALUES ('2016-06-22 13:28:03', '2016-06-22 11:28:03', 'Problem', 5, 'Open', 'Problem with Software', 'Order', 'user2');
+
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username)
+VALUES ('2016-06-22 14:28:03', '2016-06-22 11:28:03', 'Problem', 5, 'Open', 'Problem with Billing', 'Billing', 'user3');
+
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username)
+VALUES ('2016-06-22 15:28:03', '2016-06-22 11:28:03', 'Problem', 5, 'Open', 'Problem with Hardware', 'Hardware', 'user1');
+
+INSERT INTO troubleTicket (datecreated, datemodified, description, priority, status, subject, category_name, owner_username)
+VALUES ('2016-06-22 16:28:03', '2016-06-22 11:28:03', 'Problem', 5, 'Open', 'Problem with Order', 'Order', 'user1');
+
+
+# Comments for Tickets
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('I will do the software update during your lunch break!', '2016-06-21 09:20:25', 'supportSoftware', '1');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Thanks! I got the update.', '2016-06-21 13:05:14', 'user1', '1');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Could you please tell me your order number? I will check the order and transfer the 10€ back. ', '2016-06-20 17:15:20', 'supportSoftware', '4');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Thank you. My order number is 12345.', '2016-06-20 17:34:54', 'user1', '4');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Try to plug it off and on again or change the batteries.', '2016-06-05 10:55:56', 'supportHardware', '2');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Changing the batteries worked. Thanks for help!', '2016-06-05 11:04:21', 'user2', '2');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Please visit www.DealWith.ip to get help.', '2016-06-20 08:12:02', 'supportHardware', '5');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('O.K.!', '2016-06-20 08:20:44', 'user2', '5');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Try to change it.', '2016-06-06 14:51:00', 'supportHardware', '3');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Changing the RAM worked. Thanks for help!', '2016-06-06 16:04:21', 'user2', '3');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Changed the Adress!', '2016-06-06 16:04:21', 'supportOrder', '6');
+
+INSERT INTO comment (content, date, author_username, ticket_id)
+VALUES ('Thanks!!', '2016-06-06 16:04:21', 'user3', '6');
