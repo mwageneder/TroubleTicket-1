@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<http>
+		<csrf />
+		<intercept-url pattern="/resources/**" access="permitAll" />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/signUp" access="permitAll" />
+		<intercept-url pattern="/registerUser" access="permitAll" />
+		<intercept-url pattern="/createUser" access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPPORT')" />
+		<intercept-url pattern="/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPPORT', 'ROLE_USER')" />
+		<form-login login-page="/login" authentication-success-handler-ref="myAuthenticationSuccessHandler"/>
+		<logout logout-success-url="/login" logout-url="/logout" />
+	</http>
+
+
+	<b:bean id="myAuthenticationSuccessHandler" class="at.fh.swenga.service.MySimpleUrlAuthenticationSuccessHandler" />
+	
+	
+	<authentication-manager>
+		<authentication-provider user-service-ref="myUserDetailsService">
+			<password-encoder hash="bcrypt" />
+		</authentication-provider>
+	</authentication-manager>
+	
+</b:beans>

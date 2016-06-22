@@ -1,0 +1,114 @@
+/**
+ *
+ * Apply Here your Custom CSS
+ *
+*/
+
+body {
+	
+}
+
+.login-page .login-form .form-group .signup-button {
+  text-align: center;
+  color: #fff;
+  background-color: #FF9600;
+  font-size: 12px;
+  -moz-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.login-page .login-form .form-group .signup-button:hover {
+  background-color: #7e7e7e;
+  color: #fff;
+}
+
+.errmessage {
+	font-size: 14pt;
+	color: #fff;
+}
+
+.message-box {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.signup-header {
+  position: relative;
+  background: #373e4a;
+  padding: 60px 0;
+  -moz-transition: all 550ms ease-in-out;
+  -webkit-transition: all 550ms ease-in-out;
+  -o-transition: all 550ms ease-in-out;
+  transition: all 550ms ease-in-out;
+}
+
+.btn-link {
+	background:none!important;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    cursor: pointer;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #ff9600;
+  border-color: #ff9600;
+}
+.btn-save{
+  color: #fff;
+  background-color: #ff9600;
+  border-color: #ff9600;
+}
+
+.btn-save:hover{
+  color: #fff;
+  background-color: #303641;
+  border-color: #252a32;
+}
+
+.currentUser{
+  color: #303641;
+  font-weight:bold;
+}
+.currentUser:hover {
+  color: #ff9600;
+}
+h1 {
+  text-align: center;
+  font-weight: lighter;
+}
+h9 {
+	font-size: 24px;
+	color: #ff9600;
+	text-align: center;
+}
+h10 {
+	font-size: 16px;
+	color: #ff9600;
+	text-align: center;
+}
+h5 {
+	font-size: 18px;
+	color: #303641;
+	text-align: center;
+}
+.main-content-error{
+	background: #303641; 
+}
+.page-error-404 .error-symbol-inv {
+  color: #ff9600; 	
+  font-size: 120px;
+}
+.page-error-404 .error-text h2 {
+  color: #ff9600;
+  font-size: 45px;
+}
+.page-error-404 .error-text p {
+  color: #ff9600;
+  font-size: 22px;
+}
+.page-body-error{
+	background: #303641;
+}
