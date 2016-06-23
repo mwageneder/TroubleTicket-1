@@ -313,11 +313,11 @@
 
 												<div class="comment-footer">
 													<c:choose>
-														<c:when test="${comment.document.filename != ''}">
+														<c:when test="${comment.document.filename != null}">
 															<a href="download?documentId=${comment.document.id}"
 																target="_blank"><i class="entypo-attach"></i>&nbsp;<i>${comment.document.filename}</i></a>
 														</c:when>
-														<c:when test="${comment.document.filename == ''}">
+														<c:when test="${comment.document.filename == null}">
 														<i class="entypo-block"></i>&nbsp;no file attached
 														</c:when>
 													</c:choose>
