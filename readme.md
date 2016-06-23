@@ -18,4 +18,8 @@ Connection to MYSQL Server :briefcase: (Kassel @FH Joanneum :office: )
 
 --> therefore edit db.properties !!
 
+When you use our SQL query to create test data, the default password for all users which are created through the query is:
+
+Pa$$w0rd
+
 ==========================
