@@ -45,7 +45,7 @@
 			<div class="error-text">
 				<h2><strong>${pageContext.errorData.statusCode}</strong></h2><br>
 				<p>Oops, something went wrong !</p>
-				<p>Please create a ticket so you we can deal with IT!</p>
+				<p>Please create a ticket so we can deal with IT!</p>
 				<br><br>
 				<h10>Stop trying to insert scripts into our forms ;)</h10>
 				
